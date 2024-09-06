@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./media/MSF.png">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./fontawesome612/css/all.min.css">
+    <title>Editor</title>
+</head>
+
+<body class="flex column">
+
+    <h1>Editor de videos</h1>
+    <div class="flex"><input type="text" id="ruta" name="ruta" value="D:\Stuff\Desktop\b\awemer\download">
+        <input type="button" id="botonR">
+    </div>
+    <input type="file" name="archivo" id="archivo" required>
+
+    <div class="flex row maxwidth">
+
+        <div class="flex cuadricula mitad">
+
+            <div class="container-file-name">Nombre Archivo</div>
+            <div class="file-name-editor invisible"><input type="text">
+                <!-- <div>
+                    <button></button>
+                    <button></button>
+                    <button></button>
+                </div> -->
+            </div>
+
+            <form action="./scripts/convertir.php" method="post" enctype="multipart/form-data" class="flex column">
+
+                <h1>Escalar</h1>
+                <div class="flex row">
+                    <input type="text" id="resolucionW" name="resolucionW" value='1920'>
+                    <span>:</span>
+                    <input type="text" id="resolucionH" name="resolucionH" value='1080'>
+                </div>
+                <div class="flex row">
+                    <label for="interruptorMitad">Mitad</label>
+                    <input type="checkbox" id="interruptorMitad">
+                    <label for="interruptorDoble">Doble</label>
+                    <input type="checkbox" id="interruptorDoble">
+                </div>
+                <input type="submit" value="Escalar" class="loader">
+                <input type="text" class="invisible" id="escalar" name="escalar" value="escalar">
+                <input type="text" class="invisible caminito" id="caminito" name="caminito"
+                    value="D:\Stuff\Desktop\b\awemer\download">
+                <input type="text" class="invisible nombreArchivo" name="nombreArchivo" value="">
+                <input type="text" class="invisible nombreArchivoNuevo" name="nombreArchivoNuevo" value="">
+
+            </form>
+
+            <form action="./scripts/convertir.php" method="post" enctype="multipart/form-data" class="flex column">
+
+                <h1>Recortar</h1>
+                <span id="valorSlider1">6</span>
+                <input type="range" name="slider1" min="0" max="12" step="0.01" value="6" id="slider1">
+                <div>
+                    <button class="angles" type="button" id="dobleFlechaIzquierda"><i
+                            class="fa-solid fa-angles-left"></i></button>
+                    <button class="angles" type="button" id="flechaIzquierda"><i
+                            class="fa-solid fa-angle-left"></i></button>
+                    <button class="angles" type="button" id="restaurar"><i
+                            class="fa-solid fa-rotate-right"></i></button>
+                    <button class="angles" type="button" id="flechaDerecha"><i
+                            class="fa-solid fa-angle-right"></i></button>
+                    <button class="angles" type="button" id="dobleFlechaDerecha"><i
+                            class="fa-solid fa-angles-right"></i></button>
+                </div>
+                <input type="range" name="slider2" min="2.1" max="10" step="0.001" value="6" id="slider2"
+                    class="invisible">
+                <span id="valorSlider2" class="invisible">16</span>
+                <div class="flex row">
+                    <label for="disjunta">Disjunta</label>
+                    <input type="checkbox" id="disjunta">
+                </div>
+                <input type="submit" value="Recortar" class="loader">
+                <input type="text" class="invisible" id="recortar" name="recortar" value="recortar">
+                <input type="text" class="invisible caminito" id="caminito" name="caminito"
+                    value="D:\Stuff\Desktop\b\awemer\download">
+                <input type="text" class="invisible nombreArchivo" name="nombreArchivo" value="">
+                <input type="text" class="invisible nombreArchivoNuevo" name="nombreArchivoNuevo" value="">
+
+            </form>
+
+            <form action="./scripts/convertir.php" method="post" enctype="multipart/form-data" class="flex column">
+
+                <h1>Rotar</h1>
+                <select id="giro" name="giro">
+                    <option>Seleccionar rotacion</option>
+                    <option value="0">90 grados anti-horario espejo</option>
+                    <option value="1">90 grados</option>
+                    <option value="2">90 grados anti-horario</option>
+                    <option value="3">90 grados efecto espejo</option>
+                </select>
+                <div class="flex row">
+                    <label for="giroMitad">Reducir</label>
+                    <input type="checkbox" id="giroMitad" name="giroMitad">
+                    <input id="resolucionWGiro" name="resolucionWGiro" value='1' class="invisible">
+                    <input id="resolucionHGiro" name="resolucionHGiro" value='1' class="invisible">
+                </div>
+                <input type="submit" value="Rotar" class="loader">
+                <input type="text" class="invisible" id="rotar" name="rotar" value="rotar">
+                <input type="text" class="invisible caminito" id="caminito" name="caminito"
+                    value="D:\Stuff\Desktop\b\awemer\download">
+                <input type="text" class="invisible nombreArchivo" name="nombreArchivo" value="">
+                <input type="text" class="invisible nombreArchivoNuevo" name="nombreArchivoNuevo" value="">
+
+            </form>
+
+            <form action="./scripts/convertir.php" method="post" enctype="multipart/form-data" class="flex column">
+
+                <h1>Longitud</h1>
+                <div class="flex row">
+                    <input type="text" id="tiempo" name="tiempo" value='00:00'>
+                </div>
+                <!-- <input type="range" name="sliderTiempo" min="0" max="60" step="1" value="0" id="sliderTiempo"> -->
+                <div class="flex row">
+                    <label for="interruptorLongitudMitad">Mitad</label>
+                    <input type="checkbox" id="interruptorLongitudMitad">
+                </div>
+                <input type="submit" value="Cortar" class="loader">
+                <input type="text" class="invisible" id="cortar" name="cortar" value="cortar">
+                <input type="text" class="invisible caminito" id="caminito" name="caminito"
+                    value="D:\Stuff\Desktop\b\awemer\download">
+                <input type="text" class="invisible nombreArchivo" name="nombreArchivo" value="">
+                <input type="text" class="invisible nombreArchivoNuevo" name="nombreArchivoNuevo" value="">
+
+            </form>
+
+
+        </div>
+
+        <div class="flex column mitad">
+            <!-- <div id="resolucionOriginal"></div> -->
+            <!-- <div id="tiempoOriginal"></div> -->
+            <div id="casillaVideo"></div>
+        </div>
+
+    </div>
+
+    <div class="cargando-contenedor">
+        <div class="cargando"></div>
+    </div>
+
+    <script type="module" src="./scripts/general.js"></script>
+    <script type="module" src="./scripts/escalar.js"></script>
+    <script type="module" src="./scripts/rotar.js"></script>
+    <script type="module" src="./scripts/recortar.js"></script>
+    <script type="module" src="./scripts/cortar.js"></script>
+    <script type="module" src="./scripts/nombre_archivo.js"></script>
+
+</body>
+
+</html>
